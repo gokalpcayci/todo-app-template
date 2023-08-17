@@ -54,9 +54,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontHeading.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem >
         {children}
         <TailwindIndicator />
+        </ThemeProvider>
       </body>
     </html>
   );

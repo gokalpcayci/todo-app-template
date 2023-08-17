@@ -1,4 +1,4 @@
-import { SiteConfig } from "types"
+import { SiteConfig, LandingConfig } from "@/types"
 
 export const siteConfig: SiteConfig = {
   name: "Todo App Template", 
@@ -9,4 +9,19 @@ export const siteConfig: SiteConfig = {
     twitter: "#",
     github: "#",
   },
+}
+
+
+export const landingConfig: LandingConfig = {
+  mainNav: [
+    {
+      title: "About",
+      href: "/about",
+    },
+    {
+      title: "Blog",
+      href: "/blog",
+      disabled: true,
+    },
+  ],
 }
