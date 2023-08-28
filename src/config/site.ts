@@ -12,16 +12,16 @@ export const siteConfig: SiteConfig = {
 }
 
 
-export const landingConfig: LandingConfig = {
-  mainNav: [
-    {
-      title: "About",
-      href: "/about",
-    },
-    {
-      title: "Blog",
-      href: "/blog",
-      disabled: true,
-    },
-  ],
-}
+// export const landingConfig: LandingConfig = {
+//   mainNav: [
+//     {
+//       title: "About",
+//       href: "/about",
+//     },
+//     {
+//       title: "Blog",
+//       href: "/blog",
+//       disabled: true,
+//     },
+//   ],
+// }
