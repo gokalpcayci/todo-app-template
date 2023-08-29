@@ -38,14 +38,14 @@ export default function Registerpage({}: Props) {
           <p className="px-8 text-center text-sm text-muted-foreground">
             By clicking continue, you agree to our{" "}
             <Link
-              href="/terms"
+              href="#"
               className="hover:text-brand underline underline-offset-4"
             >
               Terms of Service
             </Link>{" "}
             and{" "}
             <Link
-              href="/privacy"
+              href="#"
               className="hover:text-brand underline underline-offset-4"
             >
               Privacy Policy
