@@ -97,5 +97,8 @@ export const authOptions: NextAuthOptions = {
         picture: dbUser.image,
       };
     },
+    redirect(){
+      return "/dashboard"
+    }
   },
 };
