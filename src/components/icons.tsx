@@ -23,16 +23,20 @@ import {
   Twitter,
   User,
   X,
-  type Icon as LucideIcon,
   Atom,
   Sunset,
   CalendarDays,
   CheckCircle2,
-} from "lucide-react"
+  LucideIcon,
+  Instagram,
+  Facebook,
+} from "lucide-react";
 
-export type Icon = LucideIcon
+export type Icon = LucideIcon;
 
 export const Icons = {
+  facebook: Facebook,
+  instagram: Instagram,
   sun: SunMedium,
   sunset: Sunset,
   calendar: CalendarDays,
@@ -75,4 +79,4 @@ export const Icons = {
     </svg>
   ),
   twitter: Twitter,
-}
+};

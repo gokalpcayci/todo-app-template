@@ -1,58 +1,56 @@
-import * as React from "react"
+import * as React from "react";
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
-import { ModeToggle } from "@/components/mode-toggle"
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/icons";
+import { ModeToggle } from "@/components/mode-toggle";
+
+const navigation = [
+  {
+    name: "Facebook",
+    href: "#",
+    icon: Icons.facebook,
+  },
+  {
+    name: "Instagram",
+    href: "#",
+    icon: Icons.instagram,
+  },
+  {
+    name: "Twitter",
+    href: "#",
+    icon: Icons.twitter,
+  },
+  {
+    name: "GitHub",
+    href: "#",
+    icon: Icons.gitHub,
+  },
+];
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
-    <footer className={cn(className)}>
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          <Icons.logo />
-          <p className="text-center text-sm leading-loose md:text-left">
-            Built by{" "}
+    <footer className="border">
+      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+        <div className="flex justify-center space-x-6 md:order-2">
+          {navigation.map((item) => (
             <a
-              href={siteConfig.links.twitter}
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4"
+              key={item.name}
+              href={item.href}
+              className="text-gray-400 hover:text-gray-500"
             >
-              shadcn
+              <span className="sr-only">{item.name}</span>
+              <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
-            . Hosted on{" "}
-            <a
-              href="https://vercel.com"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4"
-            >
-              Vercel
-            </a>
-            . Illustrations by{" "}
-            <a
-              href="https://popsy.co"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4"
-            >
-              Popsy
-            </a>
-            . The source code is available on{" "}
-            <a
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4"
-            >
-              GitHub
-            </a>
-            .
+          ))}
+        </div>
+        <div className="mt-8 md:mt-0 md:order-1">
+          <p className="text-center text-base text-gray-400">
+            &copy; 2020 Workflow, Inc. All rights reserved.
           </p>
         </div>
         <ModeToggle />
       </div>
     </footer>
-  )
+  );
 }

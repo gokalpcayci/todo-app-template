@@ -1,12 +1,10 @@
 import Link from "next/link";
-import { useUser } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { MainNav } from "@/components/layouts/main-nav";
 import { SiteFooter } from "@/components/layouts/site-footer";
 
 interface MarketingLayoutProps {
-  afterSignOutUrl?: string;
   children: React.ReactNode;
 }
 

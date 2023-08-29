@@ -3,21 +3,34 @@ import { dashboardConfig } from "@/config/dashboard";
 import { MainNav } from "@/components/layouts/main-nav";
 import { DashboardNav } from "@/components/nav";
 import { SiteFooter } from "@/components/layouts/site-footer";
-interface MarketingLayoutProps {
-  afterSignOutUrl?: string;
-  children: React.ReactNode;
+import { getCurrentUser } from "@/lib/session";
+import { notFound } from "next/navigation";
+import { UserAccountNav } from "@/components/user-account-nav";
+
+interface DashboardLayoutProps {
+  children?: React.ReactNode;
 }
 
 export default async function LandingLayout({
   children,
-}: MarketingLayoutProps) {
+}: DashboardLayoutProps) {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return notFound();
+  }
   return (
     <div className="flex min-h-screen flex-col space-y-6">
       <header className="sticky top-0 z-40 border-b bg-background">
         <div className="container flex h-16 items-center justify-between py-4">
-          <div className="flex h-20 items-center w-full justify-between py-6">
-            <MainNav />
-          </div>
+          <MainNav items={dashboardConfig.mainNav} />
+          <UserAccountNav
+            user={{
+              name: user.name,
+              image: user.image,
+              email: user.email,
+            }}
+          />
         </div>
       </header>
       <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
