@@ -30,11 +30,14 @@ import {
   LucideIcon,
   Instagram,
   Facebook,
+  YoutubeIcon,
+  Youtube,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+  youtube: Youtube,
   facebook: Facebook,
   instagram: Instagram,
   sun: SunMedium,
