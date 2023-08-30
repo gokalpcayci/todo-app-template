@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { DashboardShell } from "@/components/shell";
 import { DashboardHeader } from "@/components/header";
@@ -6,7 +5,6 @@ import { PostCreateButton } from "@/components/post-create-button";
 import { EmptyPlaceholder } from "@/components/empty-placeholder";
 
 export default function DashboardPage() {
-  const posts = [""];
 
   return (
     <DashboardShell>
