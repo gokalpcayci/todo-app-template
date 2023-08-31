@@ -29,6 +29,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   });
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false);
+  const [isGoogleLoading, setIsGoogleLoading] = React.useState<boolean>(false)
   const searchParams = useSearchParams();
 
   async function onSubmit(data: FormData) {
@@ -114,6 +115,19 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         )}{" "}
         Github
       </button>
+      <button
+      type="button"
+      className={cn(buttonVariants({variant: "outline"}), "flex items-center justify-center")}
+      onClick={() => {
+        setIsGoogleLoading(true)
+        signIn("google")
+      }}
+      disabled={isLoading || isGoogleLoading}
+      >
+        {isGoogleLoading ? (<Icons.spinner className="h-4 w-4 mr-2 animate-spin"/>) : (<Icons.google className="h-4 w-4 mr-2"/>)}
+        Google
+      </button>
+
     </div>
   );
 }
