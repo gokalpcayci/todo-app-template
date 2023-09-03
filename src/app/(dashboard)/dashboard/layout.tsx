@@ -6,7 +6,10 @@ import { SiteFooter } from "@/components/layouts/site-footer";
 import { getCurrentUser } from "@/lib/session";
 import { notFound } from "next/navigation";
 import { UserAccountNav } from "@/components/user-account-nav";
-
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { Icons } from "@/components/icons";
 interface DashboardLayoutProps {
   children?: React.ReactNode;
 }
@@ -35,47 +38,35 @@ export default async function LandingLayout({
       </header>
       <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
         <div className="hidden md:flex  md:items-start md:justify-center  md:gap-4">
-          <aside className="hidden w-[200px] flex-col md:flex">
+          <aside className="hidden w-[200px] flex-col justify-between h-full md:flex">
             <DashboardNav items={dashboardConfig.sidebarNav} />
+            <div className="grid gap-2">
+              <Link
+                href="/dashboard/billing"
+                className={cn(
+                  buttonVariants({ variant: "outline" }),
+                  "w-full px-3 flex items-center justify-between "
+                )}
+              >
+                Billing
+                <Icons.billing className="h-4 w-4 mr-2 " />
+              </Link>
+              <Link
+                href="/dashboard/settings"
+                className={cn(
+                  buttonVariants({ variant: "outline" }),
+                  "w-full px-3 flex items-center justify-between "
+                )}
+              >
+                Settings
+                <Icons.settings className="h-4 w-4 mr-2 " />
+              </Link>
+            </div>
           </aside>
           <Separator className="hidden md:flex" orientation="vertical" />
         </div>
 
         <main className="flex w-full flex-1 flex-col overflow-hidden">
-          <div className="grid grid-cols-2 sm:grid-cols-4 w-full h-32 mb-6 border rounded-2xl">
-            <div className="flex flex-col items-center justify-center ">
-              <div className="flex items-end gap-[1px] justify-center">
-                <h1 className="text-2xl  font-heading">2</h1>
-                <span>h</span>
-              </div>
-              <p className="text-xs lg:text-sm text-muted-foreground">
-                Estimated Time
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center ">
-              <h1 className="text-2xl  font-heading">2</h1>
-              <p className="text-xs lg:text-sm text-center text-muted-foreground">
-                Tasks to be Completed
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center ">
-              <div className="flex items-end gap-[1px] justify-center">
-                <h1 className="text-2xl  font-heading">2</h1>
-                <span>m</span>
-              </div>
-              <p className="text-xs lg:text-sm text-muted-foreground">
-                Elapsed Time
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center ">
-              <div className="flex items-end gap-[1px] justify-center">
-                <h1 className="text-2xl  font-heading">2</h1>
-              </div>
-              <p className="text-xs lg:text-sm  text-muted-foreground">
-                Completed Tasks
-              </p>
-            </div>
-          </div>
           {children}
         </main>
       </div>

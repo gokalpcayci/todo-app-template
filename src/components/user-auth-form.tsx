@@ -58,7 +58,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   }
 
   return (
-    <div className={cn("grid gap-6", className)} {...props}>
+    <div className={cn("grid gap-6 w-full", className)} {...props}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid gap-2">
           <div className="grid gap-1">
@@ -99,7 +99,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <button
+      <div className="grid grid-cols-2 gap-4 items-center w-full justify-center">
+         <button
         type="button"
         className={cn(buttonVariants({ variant: "outline" }))}
         onClick={() => {
@@ -127,7 +128,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         {isGoogleLoading ? (<Icons.spinner className="h-4 w-4 mr-2 animate-spin"/>) : (<Icons.google className="h-4 w-4 mr-2"/>)}
         Google
       </button>
-
+      </div>
     </div>
   );
 }

@@ -1,9 +1,5 @@
 "use client";
-
-import Link from "next/link";
-import { User } from "next-auth";
-import { signOut } from "next-auth/react";
-
+import React from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,8 +7,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { UserAvatar } from "@/components/user-avatar";
-
+import UserAvatar from "@/components/user-avatar";
+import { User } from "next-auth";
+import Link from "next/link";
+import { signOut } from "next-auth/react";
 interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
   user: Pick<User, "name" | "image" | "email">;
 }
@@ -26,9 +24,9 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
           className="h-8 w-8"
         />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <div className="flex items-center justify-start gap-2 p-2">
-          <div className="flex flex-col space-y-1 leading-none">
+      <DropdownMenuContent align="end" className="w-56 mt-1">
+        <div className="flex items-start justify-center gap-2 p-2">
+          <div className="flex flex-col items-start w-full justify-center leading-none">
             {user.name && <p className="font-medium">{user.name}</p>}
             {user.email && (
               <p className="w-[200px] truncate text-sm text-muted-foreground">
@@ -42,10 +40,10 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
           <Link href="/dashboard">Dashboard</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/dashboard/#">Billing</Link>
+          <Link href="/dashboard/billing">Billing</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/dashboard/#">Settings</Link>
+          <Link href="/dashboard/settings">Settings</Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem
